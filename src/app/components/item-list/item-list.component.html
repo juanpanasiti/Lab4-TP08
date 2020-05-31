@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3">
+      <a [href]="'/show/' + product.id">
+        <img [src]="'assets/img/' + product.imagen" alt="My image {{product.imagen}} description">
+      </a>
+
+    </div>
+    <div class="col-sm-9">
+      <h3>{{product.instrumento}}</h3>
+      <br />
+      <h2>${{product.precio}}</h2>
+
+      <div *ngIf="product.costoEnvio === 'G';else hasShipCost">
+        <p style="color: green">
+          <img [src]="'assets/img/camion.png'" />Envío gratis a todo el país
+        </p>
+      </div>
+
+      <ng-template #hasShipCost>
+        <p style="color: orange">
+          Costo de Envío Interio de Argentina: ${{product.costoEnvio}}
+        </p>
+
+      </ng-template>
+
+
+
+      <p>{{product.cantidadVendida}} vendidos</p>
+    </div>
+  </div>
+  <hr>
+</div>

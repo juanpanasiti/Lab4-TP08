@@ -1,0 +1,9 @@
+.show-image{
+  min-height: 400px;
+  max-height: 500px;
+  width: auto;
+
+}
+div.container{
+  margin-top: 10px;
+}

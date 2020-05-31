@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8" style="border-right: 1px solid #dedede">
+      <a [href]="'/show/' + product.id">
+        <img [src]="'assets/img/' + product.imagen" class="mx-auto d-block img-fluid show-image">
+      </a>
+      <p>
+        {{product.descripcion}}
+      </p>
+    </div>
+    <div class="col-sm-3">
+      <h6> {{product.cantidadVendida}} vendidas </h6>
+
+      <h3>{{product.instrumento}}</h3>
+
+      <h1>${{product.precio}}</h1>
+      <br>
+      <p>
+        MARCA: {{product.marca}} <br>
+        MODELO: {{product.modelo}}
+      </p>
+      <div>
+        Costo Envío: <br>
+        <div *ngIf="product.costoEnvio === 'G';else hasShipCost">
+          <p style="color: green">
+            <img [src]="'assets/img/camion.png'" />Envío gratis
+          </p>
+        </div>
+
+        <ng-template #hasShipCost>
+          <p style="color: orange">
+            $ {{product.costoEnvio}}
+          </p>
+
+        </ng-template>
+      </div>
+      <br>
+      <br>
+      <button type="button" class="btn btn-outline-primary">Agregar al carrito</button>
+    </div>
+  </div>
+
+</div>
